@@ -1,0 +1,136 @@
+:root {
+  --topbar-height: 48px;
+  --topbar-bg: #111;
+  --topbar-fg: #fff;
+  --topbar-muted: #cfcfcf;
+  --menu-bg: #222;
+  --menu-elev: 0 8px 24px rgba(0,0,0,.4);
+  --menu-radius: 4px;
+  --menu-border: 1px solid rgba(255,255,255,.08);
+  --hover-bg: rgba(255,255,255,.06);
+  --focus-ring: 0 0 0 3px rgba(0, 148, 255, .35);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--topbar-height);
+  padding: 0 16px;
+  background: var(--topbar-bg);
+  color: var(--topbar-fg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.topbar a,
+.topbar button {
+  color: var(--topbar-fg);
+  text-decoration: none;
+  font: 500 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+.topbar-left .brand {
+  font-weight: 800;
+  letter-spacing: .06em;
+  font-size: 20px;
+}
+
+.topbar-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.signin {
+  opacity: .9;
+}
+.signin:hover { opacity: 1; }
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.lang-toggle:hover { background: var(--hover-bg); }
+.lang-toggle:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+.lang-toggle .flag {
+  font-size: 16px;
+  width: 18px;
+  text-align: center;
+}
+
+.lang-toggle .chevron {
+  font-size: 12px;
+  opacity: .85;
+}
+
+/* Dropdown menu */
+.lang-menu {
+  position: absolute;
+  top: calc(var(--topbar-height) + 6px);
+  right: 16px;
+  min-width: 260px;
+  background: var(--menu-bg);
+  color: var(--topbar-fg);
+  border-radius: var(--menu-radius);
+  border: var(--menu-border);
+  box-shadow: var(--menu-elev);
+  padding: 8px 0;
+  display: none;          /* hidden by default */
+}
+
+.lang-menu.open {
+  display: block;
+}
+
+.country-group {
+  padding: 8px 12px;
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--topbar-muted);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 6px 6px 6px 4px;
+}
+
+.country .flag { font-size: 14px; width: 16px; text-align: center; }
+
+.locale {
+  display: block;
+  padding: 8px 10px 8px 28px;
+  color: #fff;
+  border-radius: 6px;
+  margin: 2px 0;
+}
+.locale:hover,
+.locale:focus-visible {
+  text-decoration: none;
+  background: var(--hover-bg);
+  outline: none;
+  box-shadow: none;
+}
+
+.divider {
+  margin: 6px 0;
+  height: 1px;
+  background: rgba(255,255,255,.08);
+}
+
+/* Small screens */
+@media (max-width: 540px) {
+  .topbar { padding: 0 10px; }
+  .lang-menu { right: 10px; min-width: 220px; }
+}
