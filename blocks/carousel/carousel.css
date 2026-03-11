@@ -1,0 +1,113 @@
+/* ====== LAYOUT ====== */
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.carousel.slider.block {
+  position: relative;
+}
+
+/* The viewport that masks slides */
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 55vw, 620px); /* responsive hero height */
+  overflow: hidden;
+}
+
+/* Horizontal track */
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 500ms ease;
+  will-change: transform;
+}
+
+/* Each slide fills the viewport */
+.carousel-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Images fill & crop nicely */
+.carousel-slide picture,
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;           /* keep image aspect, cover the hero */
+}
+
+/* ====== CAPTION CARD (WKND style) ====== */
+.carousel-caption {
+  position: absolute;
+  left: clamp(16px, 6vw, 48px);
+  bottom: clamp(10px, 4vw, 40px);
+  max-width: min(820px, 86%);
+  background: #fff;
+  color: #222;
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  padding: clamp(16px, 2.4vw, 28px) clamp(18px, 3vw, 36px);
+}
+
+.carousel-caption h2 {
+  margin: 0 0 8px 0;
+  font: 600 clamp(22px, 3.2vw, 34px)/1.25 "Georgia", "Times New Roman", serif;
+  color: #1a1a1a;
+}
+
+.carousel-caption p {
+  margin: 0 0 16px 0;
+  font: 400 clamp(14px, 1.5vw, 16px)/1.6 "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
+.carousel-caption .cta {
+  display: inline-block;
+  background: #ffd200; /* WKND yellow */
+  color: #111;
+  font: 700 12px/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25) inset;
+}
+.carousel-caption .cta:hover { filter: brightness(0.95); }
+
+/* ====== DOTS ====== */
+.carousel-dots {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(0,0,0,.1);
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+}
+.carousel-dot[aria-current="true"] {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+/* ====== ARROWS (bottom-right) ====== */
+.carousel-arrows {
+  position: absolute;
+  right: clamp(8px, 3vw, 24px);
+  bottom: clamp(8px, 2.6vw, 18px);
+}
