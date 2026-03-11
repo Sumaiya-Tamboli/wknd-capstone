@@ -270,3 +270,171 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+/* ==== PAGE HEADER (the only sticky header) ==== */
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  /* shadow to separate from hero */
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* Make sure the block inside the header doesn’t add random margins */
+.header.block { margin: 0; padding: 0; }
+
+/* ==== INNER LAYOUT: Brand | Nav | Search ==== */
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;  /* brand | nav | search */
+  align-items: center;
+  column-gap: 32px;
+  row-gap: 0;
+  padding: 18px 24px;
+  background: #fff;
+  /* constrain width and center */
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Remove vertical extra spacing coming from authoring wrappers */
+.site-header > * { margin: 0; }
+
+/* ==== BRAND (left) ==== */
+.brand {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+}
+.brand a {
+  display: inline-block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #111;
+  text-decoration: none;
+}
+.brand a:hover { opacity: .85; }
+
+/* If you also render the WKND SVG above the nav (from authoring),
+   keep it but don’t let it push things vertically */
+.navigation-container .default-content-wrapper {
+  margin: 0;
+  padding: 0;
+}
+.navigation-container .default-content-wrapper picture,
+.navigation-container .default-content-wrapper img {
+  display: block;
+  max-height: 44px;              /* match roughly with text logo height */
+  width: auto;
+}
+
+/* ==== NAV (center) ==== */
+.navigation.block {
+  position: static !important;
+  float: none !important;
+
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* Flatten the authoring wrappers so items line up in one row */
+.navigation.block > div { display: contents; }
+.navigation.block p { margin: 0; padding: 6px 0; }
+
+.navigation.block a {
+  text-decoration: none;
+  color: #2b2b2b;
+  display: inline-block;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.navigation.block a:hover {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+/* ==== SEARCH (right) ==== */
+.nav-right { justify-self: end; }
+.nav-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #f1f1f1;
+  color: #444;
+  font: 600 12px/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nav-search:hover { background: #e9e9e9; }
+.nav-search-icon { font-size: 16px; }
+
+/* ==== BLACK BAR (Sign in / EN-US) keep compact on the far left column ==== */
+.signin-container { padding: 8px 24px 0; }
+.signin-container .signin.block { margin: 0; }
+.signin-container p { margin: 0; line-height: 1.2; font-weight: 700; }
+
+/* ==== Prevent “Your forked repo…” helper text from colliding ==== */
+.default-content-wrapper p a[href*="aem.live/tutorial"] {
+  display: inline-block;
+  margin-top: 12px;  /* pushes helper below header visually */
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 900px) {
+  .site-header {
+    grid-template-columns: auto auto; /* brand | right */
+    row-gap: 12px;
+  }
+  .navigation.block {
+    grid-column: 1 / -1;
+    justify-self: center;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+}
+@media (max-width: 560px) {
+  .brand a { font-size: 30px; }
+  .navigation.block { gap: 16px; font-size: 13px; }
+  .nav-search { padding: 8px 12px; }
+}
+/* Hide the small sign-in / locale strip */
+#nav .signin-container {
+  display: none !important;
+}
+
+
+/* Hide inner site-header (if you temporarily need to) */
+#nav .site-header {
+  display: none !important;
+}
+
+/* A) Hide sign-in strip */
+#nav .signin-container { display: none !important; }
+
+/* B) Hide the extra authoring logo wrapper above the nav */
+#nav .navigation-container .default-content-wrapper { display: none !important; }
+
+/* C) Hide the entire nav row (brand+menu+search) */
+#nav .navigation-wrapper { display: none !important; }
+
+/* D) Hide the whole <nav> */
+#nav { display: none !important; }

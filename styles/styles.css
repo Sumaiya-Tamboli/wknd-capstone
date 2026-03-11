@@ -323,3 +323,8 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* Hide the authoring logo in the default content wrapper inside nav */
+#nav .navigation-container .default-content-wrapper {
+  display: none !important;
+}

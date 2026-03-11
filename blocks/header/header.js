@@ -169,3 +169,11 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 }
+
+export default function decorate(block) {
+  // your existing header decoration...
+
+  // Remove from DOM (optional)
+  const signIn = document.querySelector('#nav .signin-container');
+  if (signIn) signIn.remove();
+}
