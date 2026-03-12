@@ -110,4 +110,52 @@
   position: absolute;
   right: clamp(8px, 3vw, 24px);
   bottom: clamp(8px, 2.6vw, 18px);
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.carousel-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.6);
+  color: #fff;
+  background: rgba(0,0,0,.3);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+.carousel-arrow:hover {
+  background: rgba(0,0,0,.5);
+  border-color: #fff;
+}
+.carousel-arrow svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Hide any authoring arrows like <- and -> that were typed into slides */
+.carousel.slider.block > div:first-child p,
+.carousel.slider.block > div:last-child p {
+  display: none !important;
+}
+
+/* ====== ACCESSIBILITY (focus) ====== */
+.carousel-arrow:focus-visible,
+.carousel-dot:focus-visible,
+.carousel-caption .cta:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 115, 230, .45);
+}
+
+/* ====== SMALL VIEWPORT TWEAKS ====== */
+@media (max-width: 700px) {
+  .carousel-caption {
+    max-width: 94%;
+    left: 3%;
+    right: 3%;
+  }
 }
