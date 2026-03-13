@@ -1,0 +1,143 @@
+/* Section heading yellow underline */
+.adventurecurrent1-container .default-content-wrapper h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.adventurecurrent1-container .default-content-wrapper h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #f5c400;
+  margin-top: 8px;
+}
+
+/* Block wrapper */
+.adventurecurrent1-wrapper {
+  padding: 20px 0 40px;
+}
+
+.adventurecurrent1.block {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Tab Navigation */
+.adventurecurrent1-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 32px;
+  border: 1px solid #ccc;
+  width: fit-content;
+}
+
+.adventurecurrent1-tab {
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-right: 1px solid #ccc;
+  transition: background 0.2s, color 0.2s;
+  text-transform: uppercase;
+}
+
+.adventurecurrent1-tab:last-child {
+  border-right: none;
+}
+
+.adventurecurrent1-tab:hover {
+  background: #f0f0f0;
+}
+
+.adventurecurrent1-tab.active {
+  background: #000;
+  color: #fff;
+}
+
+/* Cards Grid */
+.adventurecurrent1-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.adventurecurrent1-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.adventurecurrent1-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.adventurecurrent1-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 12px 0 6px;
+  color: #000;
+}
+
+.adventurecurrent1-card-desc {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #555;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Hidden card */
+.adventurecurrent1-card.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .adventurecurrent1-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .adventurecurrent1-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .adventurecurrent1-tab {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .adventurecurrent1-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .adventurecurrent1-tabs {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .adventurecurrent1-tab {
+    flex: 1 1 auto;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+}

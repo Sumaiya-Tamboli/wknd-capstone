@@ -1,0 +1,88 @@
+.adventure1-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.adventure1.block {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.adventure1.block > div {
+  position: relative;
+}
+
+/* Image container */
+.adventure1.block > div > div:first-child {
+  width: 100%;
+  line-height: 0;
+}
+
+.adventure1.block > div > div:first-child picture {
+  display: block;
+  width: 100%;
+}
+
+.adventure1.block > div > div:first-child img {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Text overlay container */
+.adventure1.block > div > div:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  background-color: #ffffff;
+  padding: 24px 32px;
+  box-sizing: border-box;
+}
+
+.adventure1.block > div > div:last-child h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #000000;
+  font-family: 'Adobe Clean', adobe-clean, sans-serif;
+}
+
+.adventure1.block > div > div:last-child p {
+  font-size: 0.95rem;
+  margin: 0;
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adventure1.block > div > div:first-child img {
+    height: 400px;
+  }
+
+  .adventure1.block > div > div:last-child {
+    width: 90%;
+    padding: 16px 20px;
+  }
+
+  .adventure1.block > div > div:last-child h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .adventure1.block > div > div:first-child img {
+    height: 300px;
+  }
+
+  .adventure1.block > div > div:last-child {
+    width: 100%;
+    position: relative;
+    padding: 16px;
+  }
+}
+
