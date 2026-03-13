@@ -1,0 +1,104 @@
+.faqsblock-wrapper {
+  padding: 40px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faqsblock.block {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* FAQs Title Row */
+.faqsblock-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.faqsblock-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #f5c400;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+/* Main content area: two columns */
+.faqsblock-content {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left column */
+.faqsblock-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.faqsblock-left picture,
+.faqsblock-left img {
+  width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Description text */
+.faqsblock-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Right column - Need more help */
+.faqsblock-right {
+  padding-top: 8px;
+}
+
+.faqsblock-right h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #000;
+}
+
+.faqsblock-right p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.faqsblock-right a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.faqsblock-right a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faqsblock-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .faqsblock-right {
+    padding-top: 0;
+  }
+
+  .faqsblock-title {
+    font-size: 1.6rem;
+  }
+}

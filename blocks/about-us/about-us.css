@@ -1,0 +1,89 @@
+/* about-us.css */
+
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 60px;
+  background: #fff;
+}
+
+.about-us-wrapper {
+  width: 100%;
+}
+
+.about-us.block {
+  width: 100%;
+  display: block;
+}
+
+.about-us.block > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── H1 - About Us ── */
+.about-us.block h1 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: #1a1a2e;
+  margin: 0 0 40px 0;
+  padding: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ── H2 - Our Contributors ── */
+.about-us.block h2 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #1a1a2e;
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  display: block;
+}
+
+/* ── Short Yellow Underline (not full width) ── */
+.about-us.block h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2.5px;
+  background-color: #e8c200;
+  margin-top: 10px;
+}
+
+/* ── Italic subtitle paragraph ── */
+.about-us.block p {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: #444;
+  margin: 18px 0 0 0;
+  padding: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.about-us.block p em {
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .about-us-container {
+    padding: 30px 20px;
+  }
+
+  .about-us.block h1 {
+    font-size: 26px;
+  }
+
+  .about-us.block h2 {
+    font-size: 22px;
+  }
+}
