@@ -1,14 +1,39 @@
-var row = block.querySelector(':scope > div');
-var cols = row.querySelectorAll(':scope > div');
+export default function decorate(block) {
 
-// Insert at TOP of container
-container.insertBefore(bar, container.firstChild);
+  const items = block.querySelectorAll("p");
 
-// Hide original raw block
-block.style.display = 'none';
+  const signIn = items[0];
+  const lang = items[1];
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSignIn);
-} else {
-  initSignIn(); // DOM already ready, run immediately
+  lang.classList.add("language");
+
+  /* Create dropdown */
+
+  const dropdown = document.createElement("div");
+  dropdown.className = "lang-dropdown";
+
+  dropdown.innerHTML = `
+    <div>EN-US</div>
+    <div>FR</div>
+    <div>DE</div>
+  `;
+
+  lang.appendChild(dropdown);
+
+  /* Toggle dropdown */
+
+  lang.addEventListener("click", () => {
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  });
+
+  /* Select language */
+
+  dropdown.querySelectorAll("div").forEach((item) => {
+    item.addEventListener("click", () => {
+      lang.firstChild.textContent = item.textContent;
+      dropdown.style.display = "none";
+    });
+  });
+
 }

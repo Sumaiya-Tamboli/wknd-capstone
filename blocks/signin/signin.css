@@ -1,53 +1,58 @@
-.signin-container {
-  background-color: #1a1a1a; /* Makes entire section black */
-  
-}
-.signin-wrapper {
-  background-color: #1a1a1a; /* Ensures no white gap inside wrapper */
-padding: 400px;
-}
-.signin.black-bar.block {
-  display: none; /* Hides raw block immediately - CSS handles this */
-  padding: 400px;
+/* BLACK BAR */
+
+.signin.black-bar {
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  width: 100%;
 }
 
-.signin-bar {
-  width: 100%;
-  background-color: #1a1a1a;
-  padding: 400px; /* Left/right breathing room */
+/* CONTAINER */
+
+.signin.black-bar > div {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px;
+  padding: 6px 20px;
+  
+  
+}
+
+/* SIGN IN TEXT */
+
+.signin.black-bar p {
+  margin: 0;
+  cursor: pointer;
  
 }
 
-.signin-bar-inner {
-  display: flex;
-  justify-content: flex-end; /* Pushes SIGN IN + flag to RIGHT */
-  align-items: center;
-  height: 36px; /* Gives bar its visible height */
-  gap: 20px; /* Space between SIGN IN and flag */
-  max-width: 1300px;
-  margin: 0 auto; /* Centers inner content */
+/* LANGUAGE */
+
+.signin.black-bar .language {
+  position: relative;
 }
 
-.signin-link {
-  color: #ffffff; /* White text */
-  font-size: 11px;
-  text-transform: uppercase; /* SIGN IN caps */
-  letter-spacing: 0.08em; /* Spaced out letters */
+/* DROPDOWN */
+
+.lang-dropdown {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  background: #fff;
+  color: white;
+  display: none;
+  border: 1px solid #ddd;
+  min-width: 100px;
 }
 
-.lang-flag {
-  width: 22px;
-  height: 14px;
-  object-fit: cover; /* Flag fills its box */
+.lang-dropdown div {
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
-.lang-text {
-  color: #ffffff;
-  font-size: 11px;
-  text-transform: uppercase; /* EN-US caps */
-}
-
-.lang-chevron {
-  color: #ffffff;
-  font-size: 10px; /* Small ⌄ symbol */
+.lang-dropdown div:hover {
+  background: #f3f3f3;
 }
