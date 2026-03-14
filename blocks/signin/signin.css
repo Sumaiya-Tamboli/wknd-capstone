@@ -1,0 +1,53 @@
+.signin-container {
+  background-color: #1a1a1a; /* Makes entire section black */
+  
+}
+.signin-wrapper {
+  background-color: #1a1a1a; /* Ensures no white gap inside wrapper */
+padding: 400px;
+}
+.signin.black-bar.block {
+  display: none; /* Hides raw block immediately - CSS handles this */
+  padding: 400px;
+}
+
+.signin-bar {
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 400px; /* Left/right breathing room */
+ 
+}
+
+.signin-bar-inner {
+  display: flex;
+  justify-content: flex-end; /* Pushes SIGN IN + flag to RIGHT */
+  align-items: center;
+  height: 36px; /* Gives bar its visible height */
+  gap: 20px; /* Space between SIGN IN and flag */
+  max-width: 1300px;
+  margin: 0 auto; /* Centers inner content */
+}
+
+.signin-link {
+  color: #ffffff; /* White text */
+  font-size: 11px;
+  text-transform: uppercase; /* SIGN IN caps */
+  letter-spacing: 0.08em; /* Spaced out letters */
+}
+
+.lang-flag {
+  width: 22px;
+  height: 14px;
+  object-fit: cover; /* Flag fills its box */
+}
+
+.lang-text {
+  color: #ffffff;
+  font-size: 11px;
+  text-transform: uppercase; /* EN-US caps */
+}
+
+.lang-chevron {
+  color: #ffffff;
+  font-size: 10px; /* Small ⌄ symbol */
+}

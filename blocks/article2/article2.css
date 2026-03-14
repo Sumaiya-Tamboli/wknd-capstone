@@ -1,74 +1,63 @@
-/* article1.css */
+/* article2.css */
 
 /* ══════════════════════════
    CONTAINER & WRAPPER
 ══════════════════════════ */
 
-.article1-container {
+.article2-container {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 40px 50px 40px;
   box-sizing: border-box;
   background: #fff;
-  
-  
+  position: relative;
+  left: 150px;
 }
 
-.article1-wrapper {
+.article2-wrapper {
   width: 100%;
 }
 
-.article1.block {
+.article2.block {
   width: 100%;
   display: block;
-  
+}
+
+/* Hide raw rows - JS rebuilds */
+.article2.block > div {
+  display: none;
 }
 
 /* ══════════════════════════
-   RECENT ARTICLES HEADING
+   HEADING - Where do you want to go?
 ══════════════════════════ */
 
-.article1-container .default-content-wrapper h2 {
+.article2-container .default-content-wrapper h2,
+.article2-container .default-content-wrapper h3 {
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
   color: #1a1a1a;
-  margin: 0 0 0 0;
+  margin: 0 0 24px 0;
   padding: 0;
-  display: inline-block;
   line-height: 1.2;
-  
-  
-}
-
-.article1-container .default-content-wrapper h2::after {
-  content: '';
-  display: block;
-  width: 70px;
-  height: 3px;
-  background-color: #F5C518;
-  margin-top: 10px;
-  margin-bottom: 28px;
-
 }
 
 /* ══════════════════════════
    4-COLUMN CARDS GRID
 ══════════════════════════ */
 
-.article1-grid {
+.article2-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
-  margin-bottom: 24px;
- 
-  
+  margin-bottom: 32px;
 }
 
 /* ── Single Card ── */
-.article1-card {
+.article2-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -77,20 +66,25 @@
   color: inherit;
 }
 
+.article2-card:hover .article2-card-img img {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
 /* ── Card Image ── */
-.article1-card .article1-card-img {
+.article2-card .article2-card-img {
   width: 100%;
   overflow: hidden;
   display: block;
   margin-bottom: 14px;
 }
 
-.article1-card .article1-card-img picture {
+.article2-card .article2-card-img picture {
   display: block;
   width: 100%;
 }
 
-.article1-card .article1-card-img img {
+.article2-card .article2-card-img img {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -99,13 +93,8 @@
   transition: opacity 0.25s ease, transform 0.3s ease;
 }
 
-.article1-card:hover .article1-card-img img {
-  opacity: 0.88;
-  transform: scale(1.02);
-}
-
 /* ── Card Title ── */
-.article1-card .article1-card-title {
+.article2-card .article2-card-title {
   font-family: 'Arial', Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -114,21 +103,22 @@
   color: #1a1a1a;
   margin: 0 0 8px 0;
   padding: 0;
-  line-height: 1.4;
-  text-decoration: none;
+  line-height: 1.3;
 }
 
 /* ── Card Description ── */
-.article1-card .article1-card-desc {
+.article2-card .article2-card-desc {
   font-family: 'Arial', Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color:black;
+  color: #888;
   margin: 0;
   padding: 0;
   line-height: 1.5;
+
+  /* Truncate with ellipsis */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -136,12 +126,12 @@
 }
 
 /* ══════════════════════════
-   ALL ARTICLES BUTTON
+   ALL TRIPS BUTTON
 ══════════════════════════ */
 
-.article1-all-btn {
+.article2-all-btn {
   display: inline-block;
-  background-color: #F5C518;
+  background-color: #f0c000;
   color: #000;
   font-family: 'Arial', Helvetica, sans-serif;
   font-size: 11px;
@@ -157,7 +147,7 @@
   margin-top: 8px;
 }
 
-.article1-all-btn:hover {
+.article2-all-btn:hover {
   background-color: #d4a800;
 }
 
@@ -166,28 +156,27 @@
 ══════════════════════════ */
 
 @media (max-width: 960px) {
-  .article1-grid {
+  .article2-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
-  .article1-container {
+  .article2-container {
     padding: 0 24px 40px 24px;
   }
 }
 
 @media (max-width: 520px) {
-  .article1-grid {
+  .article2-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .article1-container {
+  .article2-container {
     padding: 0 16px 30px 16px;
   }
 
-  .article1-card .article1-card-img img {
+  .article2-card .article2-card-img img {
     height: 180px;
   }
 }
-

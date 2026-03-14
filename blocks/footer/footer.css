@@ -1,20 +1,80 @@
 footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
+  
 }
-
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
   padding: 40px 24px 24px;
+  
 }
-
 footer .footer p {
   margin: 0;
 }
+/* Change link color to white */
+footer .footer a {
+  color: #fff;
+}
+
+/* Align tabs in a single row */
+footer .footer .columns > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+footer .footer .columns > div > div:nth-child(2) p {
+  margin: 0;
+}
+
+/* Align Follow Us and social icons in a single row */
+footer .footer .columns > div > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+footer .footer .columns > div > div:nth-child(3) h4 {
+  margin: 0;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Social icons box - light background */
+footer .footer .columns > div > div:nth-child(3) p {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  background-color: #e8e8e8;
+  padding: 8px 15px;
+  margin: 0;
+}
+
+footer .footer .columns > div > div:nth-child(3) p a {
+  padding: 5px 15px;
+  font-size: 1.3em;
+  color: #333;
+  text-decoration: none;
+  border-right: 1px solid #ccc;
+  
+}
+
+footer .footer .columns > div > div:nth-child(3) p a:last-child {
+  border-right: none;
+}
+
+footer .footer .columns > div > div:nth-child(3) p a:hover {
+  color: #000;
+}
+
 
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
   }
-}
+} 
