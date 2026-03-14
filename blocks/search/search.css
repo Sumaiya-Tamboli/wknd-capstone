@@ -1,0 +1,129 @@
+
+/* ==== WKND-like utility strip for your search block ==== */
+.section.search-container{
+  background:#1f1f1f; /* near-black bar like WKND */
+  color:#fff;
+  min-height:34px;
+  line-height:34px;
+   margin-top: auto;
+  position: sticky;
+  top: 0;
+  z-index:1000;
+ 
+
+}
+
+/* Center the inner content and push items to the right */
+.section.search-container .search-wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+.section.search-container .search.block > div > div{
+  display:flex;
+  justify-content:flex-end;     /* right-aligned */
+  align-items:center;
+  gap:16px;                     /* space between SIGN IN and EN-US pill */
+  height:34px;
+}
+
+/* Base text style */
+.section.search-container .search.block p{
+  margin:0;
+  padding:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:#f5f5f5;
+  white-space:nowrap;
+}
+
+/* SIGN IN (first <p>) */
+.section.search-container .search.block p:nth-child(1){
+  text-transform:uppercase;
+  opacity:.9;
+}
+.section.search-container .search.block p:nth-child(1):hover{
+  opacity:1;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+/* EN-US pill (second <p>) */
+.section.search-container .search.block p:nth-child(2){
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:4px 10px;
+  line-height:1;
+  height:24px;
+  border:1px solid #666;
+  border-radius:999px;           /* pill */
+  background:transparent;
+  text-transform:uppercase;
+  font-weight:600;
+  letter-spacing:.02em;
+  cursor:pointer;
+}
+
+/* Add US flag before the text via inline SVG data-URI (crisp at small size) */
+.section.search-container .search.block p:nth-child(2)::before{
+  content:"";
+  width:18px; height:12px;
+  display:inline-block;
+  background-image:
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='27' height='18' viewBox='0 0 27 18'>\
+<rect width='27' height='18' fill='%23b22234'/>\
+<g fill='%23fff'>\
+<rect y='2' width='27' height='2'/>\
+<rect y='6' width='27' height='2'/>\
+<rect y='10' width='27' height='2'/>\
+<rect y='14' width='27' height='2'/>\
+</g>\
+<rect width='12' height='9' fill='%23003f87'/>\
+<g fill='%23fff' transform='scale(0.8) translate(1,1)'>\
+<circle r='0.8' cx='2' cy='2'/>\
+<circle r='0.8' cx='4.5' cy='2'/>\
+<circle r='0.8' cx='7' cy='2'/>\
+<circle r='0.8' cx='9.5' cy='2'/>\
+<circle r='0.8' cx='2' cy='4.5'/>\
+<circle r='0.8' cx='4.5' cy='4.5'/>\
+<circle r='0.8' cx='7' cy='4.5'/>\
+<circle r='0.8' cx='9.5' cy='4.5'/>\
+<circle r='0.8' cx='2' cy='7'/>\
+<circle r='0.8' cx='4.5' cy='7'/>\
+<circle r='0.8' cx='7' cy='7'/>\
+<circle r='0.8' cx='9.5' cy='7'/>\
+</g>\
+</svg>");
+  background-size:cover;
+  border-radius:2px;
+}
+
+/* Down-caret after text */
+.section.search-container .search.block p:nth-child(2)::after{
+  content:"";
+  display:inline-block;
+  width:8px; height:8px;
+  margin-left:2px;
+  border-right:2px solid #cfcfcf;
+  border-bottom:2px solid #cfcfcf;
+  transform:rotate(45deg);
+  transition:transform .15s ease;
+}
+
+/* Hover / active styles for the pill */
+.section.search-container .search.block p:nth-child(2):hover{
+  border-color:#999;
+}
+.section.search-container .search.block p:nth-child(2).is-open::after{
+  transform:rotate(-135deg); /* point up when open */
+}
+
+/* Optional: very small screens, compress spacing */
+@media (max-width:420px){
+  .section.search-container .search.block > div > div{ gap:10px; }
+  .section.search-container .search.block p:nth-child(2){ padding:3px 8px; }
+}

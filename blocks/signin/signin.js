@@ -1,39 +1,39 @@
-export default function decorate(block) {
+// export default function decorate(block) {
 
-  const items = block.querySelectorAll("p");
+//   const items = block.querySelectorAll("p");
 
-  const signIn = items[0];
-  const lang = items[1];
+//   const signIn = items[0];
+//   const lang = items[1];
 
-  lang.classList.add("language");
+//   lang.classList.add("language");
 
-  /* Create dropdown */
+//   /* Create dropdown */
 
-  const dropdown = document.createElement("div");
-  dropdown.className = "lang-dropdown";
+//   const dropdown = document.createElement("div");
+//   dropdown.className = "lang-dropdown";
 
-  dropdown.innerHTML = `
-    <div>EN-US</div>
-    <div>FR</div>
-    <div>DE</div>
-  `;
+//   dropdown.innerHTML = `
+//     <div>EN-US</div>
+//     <div>FR</div>
+//     <div>DE</div>
+//   `;
 
-  lang.appendChild(dropdown);
+//   lang.appendChild(dropdown);
 
-  /* Toggle dropdown */
+//   /* Toggle dropdown */
 
-  lang.addEventListener("click", () => {
-    dropdown.style.display =
-      dropdown.style.display === "block" ? "none" : "block";
-  });
+//   lang.addEventListener("click", () => {
+//     dropdown.style.display =
+//       dropdown.style.display === "block" ? "none" : "block";
+//   });
 
-  /* Select language */
+//   /* Select language */
 
-  dropdown.querySelectorAll("div").forEach((item) => {
-    item.addEventListener("click", () => {
-      lang.firstChild.textContent = item.textContent;
-      dropdown.style.display = "none";
-    });
-  });
+//   dropdown.querySelectorAll("div").forEach((item) => {
+//     item.addEventListener("click", () => {
+//       lang.firstChild.textContent = item.textContent;
+//       dropdown.style.display = "none";
+//     });
+//   });
 
-}
+// }

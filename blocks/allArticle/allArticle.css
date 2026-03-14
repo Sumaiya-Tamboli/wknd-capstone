@@ -3,6 +3,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px 20px;
+  
 }
 
 /* ===== "All Articles" Heading ===== */
@@ -13,6 +14,7 @@
   color: #1a1a1a;
   margin: 0 0 12px 0;
   padding: 0;
+  
 }
 
 /* Yellow underline after heading */
@@ -23,6 +25,7 @@
   height: 4px;
   background-color: #f5d000;
   margin-bottom: 36px;
+  
 }
 
 /* ===== Grid Layout ===== */
@@ -31,6 +34,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   width: 100%;
+  
 }
 
 /* ===== Each Card ===== */
@@ -38,6 +42,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  
 }
 
 /* ===== Image Wrapper ===== */
@@ -71,6 +76,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  
 }
 
 /* ===== Article Title Button ===== */

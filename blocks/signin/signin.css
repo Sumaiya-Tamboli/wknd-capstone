@@ -1,4 +1,4 @@
-/* BLACK BAR */
+/* /* /* BLACK BAR
 
 .signin.black-bar {
   background: #000;
@@ -9,7 +9,7 @@
 
 /* CONTAINER */
 
-.signin.black-bar > div {
+/* .signin.black-bar > div {
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -19,25 +19,25 @@
   padding: 6px 20px;
   
   
-}
+} */
 
 /* SIGN IN TEXT */
 
-.signin.black-bar p {
+/* .signin.black-bar p {
   margin: 0;
   cursor: pointer;
  
-}
+} */
 
 /* LANGUAGE */
 
-.signin.black-bar .language {
+/* .signin.black-bar .language {
   position: relative;
-}
+} */
 
 /* DROPDOWN */
 
-.lang-dropdown {
+/* .lang-dropdown {
   position: absolute;
   right: 0;
   top: 28px;
@@ -46,13 +46,13 @@
   display: none;
   border: 1px solid #ddd;
   min-width: 100px;
-}
+} */
 
-.lang-dropdown div {
+/* .lang-dropdown div {
   padding: 8px 12px;
   cursor: pointer;
-}
+} */
 
-.lang-dropdown div:hover {
+/* .lang-dropdown div:hover {
   background: #f3f3f3;
-}
+} */ 

@@ -155,15 +155,16 @@ button {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
+  color: black;
+  /* var(--link-color) */
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
-a:hover {
+/* a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
-}
+} */
 
 /* buttons */
 p.button-wrapper {
@@ -358,4 +359,9 @@ main .section.highlight {
   background-color: black;
   color: white;
  
+}
+.article1-all-btn {
+  color: #000;          /* black text */
+  text-decoration: none;
+  background-color: #F5C518;
 }

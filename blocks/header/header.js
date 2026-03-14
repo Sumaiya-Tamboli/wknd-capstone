@@ -177,3 +177,4 @@ export default function decorate(block) {
   const signIn = document.querySelector('#nav .signin-container');
   if (signIn) signIn.remove();
 }
+
