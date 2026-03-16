@@ -1,9 +1,7 @@
 /* article2.css */
-
 /* ══════════════════════════
    CONTAINER & WRAPPER
 ══════════════════════════ */
-
 .article2-container {
   width: 100%;
   max-width: 1300px;
@@ -11,66 +9,67 @@
   padding: 0 40px 50px 40px;
   box-sizing: border-box;
   background: #fff;
-  position: relative;
-  left: 150px;
+  /* Removed position: relative and left: 150px to match article1 */
 }
-
 .article2-wrapper {
   width: 100%;
 }
-
 .article2.block {
   width: 100%;
   display: block;
 }
-
 /* Hide raw rows - JS rebuilds */
 .article2.block > div {
   display: none;
 }
-
 /* ══════════════════════════
    HEADING - Where do you want to go?
 ══════════════════════════ */
-
 .article2-container .default-content-wrapper h2,
 .article2-container .default-content-wrapper h3 {
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 28px;
+  font-size: 32px; /* Updated to match article1 */
   font-weight: 400;
   color: #1a1a1a;
-  margin: 0 0 24px 0;
+  margin: 0 0 0 0; /* Updated to match article1 */
   padding: 0;
   line-height: 1.2;
+  display: inline-block; /* Updated to match article1 */
 }
-
+/* Added underline decoration to match article1 */
+.article2-container .default-content-wrapper h2::after,
+.article2-container .default-content-wrapper h3::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background-color: #F5C518;
+  margin-top: 10px;
+  margin-bottom: 28px;
+}
 /* ══════════════════════════
    4-COLUMN CARDS GRID
 ══════════════════════════ */
-
 .article2-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 24px; /* Updated to match article1 */
 }
-
 /* ── Single Card ── */
 .article2-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; /* Updated to match article1 */
   cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
-
 .article2-card:hover .article2-card-img img {
   opacity: 0.88;
   transform: scale(1.02);
 }
-
 /* ── Card Image ── */
 .article2-card .article2-card-img {
   width: 100%;
@@ -78,12 +77,10 @@
   display: block;
   margin-bottom: 14px;
 }
-
 .article2-card .article2-card-img picture {
   display: block;
   width: 100%;
 }
-
 .article2-card .article2-card-img img {
   width: 100%;
   height: 200px;
@@ -92,7 +89,6 @@
   display: block;
   transition: opacity 0.25s ease, transform 0.3s ease;
 }
-
 /* ── Card Title ── */
 .article2-card .article2-card-title {
   font-family: 'Arial', Helvetica, sans-serif;
@@ -103,9 +99,9 @@
   color: #1a1a1a;
   margin: 0 0 8px 0;
   padding: 0;
-  line-height: 1.3;
+  line-height: 1.4; /* Updated to match article1 */
+  text-decoration: none; /* Updated to match article1 */
 }
-
 /* ── Card Description ── */
 .article2-card .article2-card-desc {
   font-family: 'Arial', Helvetica, sans-serif;
@@ -113,25 +109,21 @@
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #888;
+  color: black; /* Updated to match article1 */
   margin: 0;
   padding: 0;
   line-height: 1.5;
-
-  /* Truncate with ellipsis */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
 }
-
 /* ══════════════════════════
    ALL TRIPS BUTTON
 ══════════════════════════ */
-
 .article2-all-btn {
   display: inline-block;
-  background-color: #f0c000;
+  background-color: #F5C518; /* Updated to match article1 */
   color: #000;
   font-family: 'Arial', Helvetica, sans-serif;
   font-size: 11px;
@@ -144,38 +136,31 @@
   cursor: pointer;
   border-radius: 0;
   transition: background-color 0.2s ease;
-  margin-top: 8px;
+  margin-top: 8px; /* Updated to match article1 */
 }
-
 .article2-all-btn:hover {
   background-color: #d4a800;
 }
-
 /* ══════════════════════════
    RESPONSIVE
 ══════════════════════════ */
-
 @media (max-width: 960px) {
   .article2-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-
   .article2-container {
     padding: 0 24px 40px 24px;
   }
 }
-
 @media (max-width: 520px) {
   .article2-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-
   .article2-container {
     padding: 0 16px 30px 16px;
   }
-
   .article2-card .article2-card-img img {
     height: 180px;
   }

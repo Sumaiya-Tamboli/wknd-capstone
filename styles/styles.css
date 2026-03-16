@@ -365,3 +365,26 @@ main .section.highlight {
   text-decoration: none;
   background-color: #F5C518;
 }
+
+body {
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+}
+
+.carousel-wrapper{
+  margin-left: 250px;
+}
+
+.page1-wrapper{
+  position: relative;
+  right: 130px;
+}
+
+.nextpage-container {
+  position: relative;
+  right: 300px; /* Moves the container 300px to the right */
+}
+
+.nextpage-wrapper, 
+.nextpage-card {
+  position: relative; /* Ensures child elements maintain relative positioning */
+}
