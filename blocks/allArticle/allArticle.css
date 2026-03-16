@@ -1,5 +1,5 @@
 /* ===== All Articles Section ===== */
-.allarticle-container {
+.allArticle-container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px 20px;
@@ -7,7 +7,7 @@
 }
 
 /* ===== "All Articles" Heading ===== */
-.allarticle-container .default-content-wrapper p {
+.allArticle-container .default-content-wrapper p {
   font-size: 2rem;
   font-weight: 700;
   font-family: Georgia, 'Times New Roman', serif;
@@ -18,7 +18,7 @@
 }
 
 /* Yellow underline after heading */
-.allarticle-container .default-content-wrapper::after {
+.allArticle-container .default-content-wrapper::after {
   content: '';
   display: block;
   width: 60px;
@@ -29,7 +29,7 @@
 }
 
 /* ===== Grid Layout ===== */
-.allarticle.block {
+.allArticle.block {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
@@ -38,7 +38,7 @@
 }
 
 /* ===== Each Card ===== */
-.allarticle.block > div {
+.allArticle.block > div {
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -46,19 +46,19 @@
 }
 
 /* ===== Image Wrapper ===== */
-.allarticle.block > div > div:first-child {
+.allArticle.block > div > div:first-child {
   width: 100%;
   overflow: hidden;
   aspect-ratio: 4 / 3;
 }
 
-.allarticle.block > div > div:first-child picture {
+.allArticle.block > div > div:first-child picture {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.allarticle.block > div > div:first-child img {
+.allArticle.block > div > div:first-child img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -66,12 +66,12 @@
   transition: transform 0.3s ease;
 }
 
-.allarticle.block > div:hover > div:first-child img {
+.allArticle.block > div:hover > div:first-child img {
   transform: scale(1.04);
 }
 
 /* ===== Content Wrapper ===== */
-.allarticle.block > div > div:last-child {
+.allArticle.block > div > div:last-child {
   padding: 16px 0 0 0;
   display: flex;
   flex-direction: column;
@@ -80,12 +80,12 @@
 }
 
 /* ===== Article Title Button ===== */
-.allarticle.block .button-wrapper {
+.allArticle.block .button-wrapper {
   margin: 0;
   padding: 0;
 }
 
-.allarticle.block .button-wrapper a.button.primary {
+.allArticle.block .button-wrapper a.button.primary {
   display: inline;
   background: none;
   border: none;
@@ -102,12 +102,12 @@
   line-height: 1.4;
 }
 
-.allarticle.block .button-wrapper a.button.primary:hover {
+.allArticle.block .button-wrapper a.button.primary:hover {
   text-decoration: underline;
 }
 
 /* ===== Description Text ===== */
-.allarticle.block > div > div:last-child > p:not(.button-wrapper) {
+.allArticle.block > div > div:last-child > p:not(.button-wrapper) {
   font-size: 0.8rem;
   font-family: Arial, Helvetica, sans-serif;
   color: #555555;
@@ -119,24 +119,24 @@
 
 /* ===== Responsive - Tablet ===== */
 @media (max-width: 1024px) {
-  .allarticle.block {
+  .allArticle.block {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .allarticle.block {
+  .allArticle.block {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* ===== Responsive - Mobile ===== */
 @media (max-width: 480px) {
-  .allarticle.block {
+  .allArticle.block {
     grid-template-columns: 1fr;
   }
 
-  .allarticle-container .default-content-wrapper p {
+  .allArticle-container .default-content-wrapper p {
     font-size: 1.5rem;
   }
 }
