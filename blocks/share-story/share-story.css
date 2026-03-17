@@ -1,0 +1,100 @@
+.share-story {
+  max-width: 320px;
+  width: 100%;
+  position: relative;
+  bottom: 1550px;
+}
+ 
+/* Title */
+.share-story::before {
+  content: "SHARE THIS STORY";
+  display: block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+ 
+/* Each item */
+.share-story > div {
+  border-left: 2px solid #e0e0e0;
+  padding: 18px 20px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+ 
+/* Text */
+.share-story > div p {
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 100;
+}
+ 
+/* Title */
+.share-story > div p strong,
+.share-story > div p br:first-of-type {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+ 
+/* Date */
+.share-story > div p br + * {
+  font-size: 12px;
+  color: #888;
+  text-transform: none;
+}
+ 
+/* Hover effect */
+.share-story > div:hover {
+  background: #f4d400;
+  border-left: 4px solid #000;
+}
+ 
+ 
+/* Tablet */
+@media (max-width: 768px) {
+ 
+  .share-story {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+ 
+  .share-story > div {
+    padding: 16px 18px;
+    margin-bottom: 20px;
+  }
+ 
+  .share-story > div p {
+    font-size: 14px;
+  }
+}
+ 
+ 
+/* Mobile */
+@media (max-width: 480px) {
+ 
+  .share-story {
+    max-width: 100%;
+  }
+ 
+  .share-story::before {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+ 
+  .share-story > div {
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+ 
+  .share-story > div p {
+    font-size: 13px;
+  }
+ 
+  .share-story > div p br + * {
+    font-size: 11px;
+  }
+}
+

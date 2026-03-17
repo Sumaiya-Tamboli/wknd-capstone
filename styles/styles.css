@@ -391,3 +391,7 @@ body {
 }
 
 
+
+.arctic-content1-container{
+  display: flex;
+}
