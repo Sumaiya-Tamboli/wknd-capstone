@@ -51,8 +51,8 @@
   padding: 0;
   font-family:'Roboto', -apple-system, BlinkMacSystemFont,'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #000;
@@ -98,4 +98,54 @@
 /* ── Icon rotates to X when open ── */
 .faqaccordion.block > div.faq-open > div:first-child .faq-toggle-icon {
  transform: rotate(45deg);
+}
+
+/* ---- Align like WKND: centered column, no manual offset ---- */
+.faqaccordion-container {
+  max-width: 760px;      /* close to WKND’s content column */
+  margin: 0 auto;        /* center the block */
+  padding: 0 24px;       /* page gutter similar to WKND */
+  position: static;      /* remove offset behavior */
+  left: auto;            /* ensure no horizontal shift */
+  background: #fff;
+}
+
+/* ---- Question row: compact, clean spacing ---- */
+.faqaccordion.block > div > div:first-child {
+  padding: 18px 0;       /* tighter like WKND */
+}
+
+/* ---- Borders like WKND ---- */
+.faqaccordion.block > div {
+  border-bottom: 1px solid #dedede;
+}
+.faqaccordion.block > div:first-child {
+  border-top: 1px solid #dedede;
+}
+
+/* ---- Make the question text occupy the row so the + sits at the right edge ---- */
+.faqaccordion.block > div > div:first-child h3 {
+  flex: 1 1 auto;        /* lets the icon align flush right */
+}
+
+/* ---- Plus icon sizing/spacing similar to WKND ---- */
+.faq-toggle-icon {
+  margin-left: 16px;
+  width: 24px;
+  height: 24px;
+  font-size: 28px;
+}
+
+/* ---- Answer spacing & tone ---- */
+.faqaccordion.block > div.faq-open > div:last-child {
+  padding: 0 0 18px 0;   /* consistent with row padding */
+  color: #222;
+}
+
+/* ---- Responsive gutter like WKND ---- */
+@media (max-width: 768px) {
+  .faqaccordion-container {
+    max-width: 100%;
+    padding: 0 16px;
+  }
 }
