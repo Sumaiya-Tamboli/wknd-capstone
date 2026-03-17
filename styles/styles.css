@@ -127,6 +127,7 @@ pre,
 blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
+  text-align: justify;
 }
 
 code,
@@ -388,3 +389,5 @@ body {
 .nextpage-card {
   position: relative; /* Ensures child elements maintain relative positioning */
 }
+
+
