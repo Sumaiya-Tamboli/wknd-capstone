@@ -1,0 +1,124 @@
+/* carousel wrapper */
+.carousel-home {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 120px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+ 
+/* slide track */
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+ 
+/* each slide */
+.carousel-track > div {
+  min-width: 100%;
+  position: relative;
+}
+ 
+/* hero image */
+.carousel-home img {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  display: block;
+  contain-intrinsic-size: auto 540px;
+}
+ 
+/* carousel content card */
+.carousel-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -40px;
+  width: 70%;
+  max-width: 1140px;
+  background: #fff;
+  padding: 12px 20px;
+  color: var(--text-color, #202020);
+  font-family: var(
+    --font-family-sans-serif,
+    "Source Sans Pro",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif
+  );
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0%);
+}
+ 
+/* title */
+.carousel-card h2 {
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-size: 36px;
+  font-weight: 200;
+  margin-bottom: 6px;
+  color: #202020;
+}
+ 
+/* description */
+.carousel-card p {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+ 
+/* button */
+.carousel-card a {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: hsl(54deg 100% 50%);
+  color: #000;
+  font-size: 12px;
+  font-weight: 550;
+  padding: 12px 30px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+ 
+/* arrows */
+.carousel-arrow {
+  position: absolute;
+  bottom: 90px;
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+}
+ 
+.carousel-arrow.prev {
+  right: 90px;
+}
+ 
+.carousel-arrow.next {
+  right: 40px;
+}
+ 
+/* dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+ 
+.carousel-dot {
+  height: 8px;
+  width: 8px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 6px;
+  cursor: pointer;
+}
+ 
+.carousel-dot.active {
+  background: #333;
+}

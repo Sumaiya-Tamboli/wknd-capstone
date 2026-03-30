@@ -36,6 +36,7 @@ export default function decorate(block) {
   if (pictureEl) {
     leftCol.appendChild(pictureEl.cloneNode(true));
   }
+  
 
   // Add description text below image
   if (descText) {
