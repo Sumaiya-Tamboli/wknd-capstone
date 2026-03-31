@@ -166,7 +166,7 @@
 /* ══════════════════════════
    RESPONSIVE
 ══════════════════════════ */
-
+/* 
 @media (max-width: 960px) {
   .article1-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -191,8 +191,127 @@
   .article1-card .article1-card-img img {
     height: 180px;
   }
+} */
+
+/* ============================================
+   LARGE LAPTOP (1440px and below)
+   ============================================ */
+@media (max-width: 1440px) {
+  .article1-container {
+    max-width: 1200px;
+    padding: 0 32px 48px 32px;
+  }
+
+  .article1-container .default-content-wrapper h2 {
+    font-size: 30px;
+  }
 }
 
+/* ============================================
+   LAPTOP (1200px and below)
+   ============================================ */
+@media (max-width: 1200px) {
+  .article1-container {
+    max-width: 1100px;
+    padding: 0 28px 44px 28px;
+  }
 
+  .article1-grid {
+    gap: 18px;
+  }
 
+  .article1-card .article1-card-img img {
+    height: 190px;
+  }
 
+  .article1-card .article1-card-title {
+    font-size: 12.5px;
+  }
+}
+
+/* ============================================
+   TABLET (1024px and below)
+   ============================================ */
+@media (max-width: 1024px) {
+  .article1-container {
+    padding: 0 20px 40px 20px;
+  }
+
+  .article1-container .default-content-wrapper h2 {
+    font-size: 26px;
+  }
+
+  .article1-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .article1-card .article1-card-img img {
+    height: 180px;
+  }
+
+  .article1-all-btn {
+    margin-left: 0;
+  }
+}
+
+/* ============================================
+   MOBILE (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .article1-container {
+    padding: 0 16px 36px 16px;
+  }
+
+  .article1-container .default-content-wrapper h2 {
+    font-size: 24px;
+  }
+
+  .article1-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .article1-card .article1-card-img img {
+    height: 170px;
+  }
+
+  .article1-card .article1-card-title {
+    font-size: 12px;
+  }
+
+  .article1-card .article1-card-desc {
+    font-size: 10px;
+  }
+
+  .article1-all-btn {
+    padding: 12px 22px;
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .article1-container {
+    padding: 0 12px 30px 12px;
+  }
+
+  .article1-container .default-content-wrapper h2 {
+    font-size: 22px;
+  }
+
+  .article1-card .article1-card-img img {
+    height: 150px;
+  }
+
+  .article1-card .article1-card-desc {
+    font-size: 9.5px;
+  }
+
+  .article1-all-btn {
+    padding: 10px 18px;
+    font-size: 9px;
+  }
+}

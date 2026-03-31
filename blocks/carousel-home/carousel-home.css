@@ -122,3 +122,153 @@
 .carousel-dot.active {
   background: #333;
 }
+
+/* ============================================
+   LAPTOP (1024px - 1440px)
+   ============================================ */
+@media (max-width: 1440px) {
+  .carousel-home img {
+    height: 480px;
+  }
+
+  .carousel-card {
+    width: 80%;
+    bottom: -35px;
+  }
+
+  .carousel-card h2 {
+    font-size: 30px;
+  }
+
+  .carousel-card p {
+    font-size: 13px;
+  }
+}
+
+/* ============================================
+   TABLET (768px - 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .carousel-home img {
+    height: 420px;
+  }
+
+  .carousel-card {
+    width: 85%;
+    padding: 16px;
+    bottom: -30px;
+  }
+
+  .carousel-card h2 {
+    font-size: 26px;
+  }
+
+  .carousel-card p {
+    font-size: 13px;
+  }
+
+  .carousel-card a {
+    padding: 10px 22px;
+    font-size: 11px;
+  }
+
+  .carousel-arrow {
+    bottom: 70px;
+    font-size: 22px;
+  }
+
+  .carousel-arrow.prev {
+    right: 70px;
+  }
+
+  .carousel-arrow.next {
+    right: 30px;
+  }
+
+  .carousel-dots {
+    bottom: 70px;
+  }
+}
+
+/* ============================================
+   MOBILE (below 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .carousel-home {
+    padding-bottom: 90px;
+  }
+
+  .carousel-home img {
+    height: 280px;
+  }
+
+  .carousel-card {
+    width: 92%;
+    padding: 14px;
+    bottom: -25px;
+  }
+
+  .carousel-card h2 {
+    font-size: 20px;
+  }
+
+  .carousel-card p {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .carousel-card a {
+    padding: 8px 16px;
+    font-size: 10px;
+  }
+
+  .carousel-arrow {
+    bottom: 55px;
+    font-size: 20px;
+  }
+
+  .carousel-arrow.prev {
+    right: 60px;
+  }
+
+  .carousel-arrow.next {
+    right: 20px;
+  }
+
+  .carousel-dots {
+    bottom: 55px;
+  }
+
+  .carousel-dot {
+    height: 6px;
+    width: 6px;
+    margin: 4px;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (below 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .carousel-home img {
+    height: 240px;
+  }
+
+  .carousel-card {
+    width: 95%;
+    padding: 12px;
+    bottom: -20px;
+  }
+
+  .carousel-card h2 {
+    font-size: 18px;
+  }
+
+  .carousel-card p {
+    font-size: 11px;
+  }
+
+  .carousel-arrow {
+    display: none; /* cleaner UI on small screens */
+  }
+}

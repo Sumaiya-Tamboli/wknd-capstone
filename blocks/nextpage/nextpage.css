@@ -156,7 +156,7 @@
    RESPONSIVE
 ══════════════════════════ */
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .nextpage-card .nextpage-image picture img {
     height: 320px;
   }
@@ -188,5 +188,140 @@
 
   .nextpage-card .nextpage-title {
     font-size: 18px;
+  }
+} */
+
+/* ============================================
+   LARGE LAPTOP (1440px and below)
+   ============================================ */
+@media (max-width: 1440px) {
+  .nextpage-container {
+    max-width: 1200px;
+    padding: 0 32px;
+  }
+
+  .nextpage-card .nextpage-content {
+    left: 60px;
+    margin-right: 12%;
+  }
+
+  .nextpage-card .nextpage-title {
+    font-size: 26px;
+  }
+}
+
+/* ============================================
+   LAPTOP (1200px and below)
+   ============================================ */
+@media (max-width: 1200px) {
+  .nextpage-container {
+    padding: 0 28px;
+  }
+
+  .nextpage-card .nextpage-image picture img {
+    height: 420px;
+  }
+
+  .nextpage-card .nextpage-content {
+    left: 30px;
+    margin-top: -90px;
+    margin-right: 8%;
+    padding: 32px 32px;
+  }
+
+  .nextpage-card .nextpage-title {
+    font-size: 24px;
+  }
+
+  .nextpage-card .nextpage-desc {
+    font-size: 13.5px;
+  }
+}
+
+/* ============================================
+   TABLET (1024px and below)
+   ============================================ */
+@media (max-width: 1024px) {
+  .nextpage-container {
+    padding: 0 20px;
+  }
+
+  .nextpage-card .nextpage-image picture img {
+    height: 360px;
+  }
+
+  .nextpage-card .nextpage-content {
+    left: 0;
+    margin-top: -70px;
+    margin-right: 0;
+    padding: 28px 24px;
+  }
+
+  .nextpage-card .nextpage-title {
+    font-size: 22px;
+  }
+
+  .nextpage-card .nextpage-desc {
+    font-size: 13px;
+  }
+}
+
+/* ============================================
+   MOBILE (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .nextpage-container {
+    padding: 0 16px;
+  }
+
+  .nextpage-card .nextpage-image picture img {
+    height: 300px;
+  }
+
+  .nextpage-card .nextpage-content {
+    left: 0;
+    margin-top: -50px;
+    padding: 24px 20px;
+  }
+
+  .nextpage-card .nextpage-title {
+    font-size: 20px;
+  }
+
+  .nextpage-card .nextpage-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .nextpage-card .nextpage-cta {
+    padding: 12px 20px;
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .nextpage-card .nextpage-image picture img {
+    height: 240px;
+  }
+
+  .nextpage-card .nextpage-content {
+    margin-top: -30px;
+    padding: 18px 14px;
+  }
+
+  .nextpage-card .nextpage-title {
+    font-size: 18px;
+  }
+
+  .nextpage-card .nextpage-desc {
+    font-size: 12px;
+  }
+
+  .nextpage-card .nextpage-cta {
+    padding: 10px 16px;
+    font-size: 9px;
   }
 }
