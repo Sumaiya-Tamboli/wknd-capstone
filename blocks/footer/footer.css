@@ -1,80 +1,256 @@
+/* ============================================
+   WKND Footer
+   ============================================ */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
-  
-}
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-  
-}
-footer .footer p {
   margin: 0;
+  padding: 0;
+  contain: layout style;
 }
-/* Change link color to white */
-footer .footer a {
+
+footer .footer {
+  background-color: #1c1c1c;
   color: #fff;
+  font-family: var(
+    --body-font-family,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif
+  );
 }
 
-/* Align tabs in a single row */
-footer .footer .columns > div > div:nth-child(2) {
+footer .footer .section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ============================================
+   FOOTER TOP
+   ============================================ */
+footer .footer-top {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-footer .footer .columns > div > div:nth-child(2) p {
-  margin: 0;
-}
-
-/* Align Follow Us and social icons in a single row */
-footer .footer .columns > div > div:nth-child(3) {
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 15px;
-}
-
-footer .footer .columns > div > div:nth-child(3) h4 {
-  margin: 0;
-  white-space: nowrap;
-  color: #fff;
-  font-size: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* Social icons box - light background */
-footer .footer .columns > div > div:nth-child(3) p {
-  display: flex;
-  flex-direction: row;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255 255 255 / 10%);
   gap: 0;
-  background-color: #e8e8e8;
-  padding: 8px 15px;
+}
+
+/* --- Logo --- */
+footer .footer-logo {
+  flex: 0 0 auto;
+  margin-right: 40px;
+}
+
+footer .footer-logo p {
   margin: 0;
+  line-height: 1;
 }
 
-footer .footer .columns > div > div:nth-child(3) p a {
-  padding: 5px 15px;
-  font-size: 1.3em;
-  color: #333;
+footer .footer-logo img {
+  display: block;
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+/* --- Nav --- */
+footer .footer-nav {
+  flex: 1 1 auto;
+}
+
+footer .footer-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  align-items: center;
+}
+
+footer .footer-nav ul li a {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   text-decoration: none;
-  border-right: 1px solid #ccc;
-  
+  padding: 4px 18px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
-footer .footer .columns > div > div:nth-child(3) p a:last-child {
+footer .footer-nav ul li:first-child a {
+  padding-left: 0;
+}
+
+footer .footer-nav ul li a:hover {
+  color: #ffea00;
+}
+
+/* --- Social --- */
+footer .footer-social {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+}
+
+footer .footer-social-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #fff;
+  white-space: nowrap;
+  margin-right: 16px;
+}
+
+/* White box around icons — matches OG WKND */
+footer .footer-social .social-icons {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 8px 6px;
+  gap: 4px;
+}
+
+footer .footer-social .social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 24px;
+  text-decoration: none;
+  border-right: 1px solid #ddd;
+}
+
+footer .footer-social .social-icons a:last-child {
   border-right: none;
 }
 
-footer .footer .columns > div > div:nth-child(3) p a:hover {
-  color: #000;
+footer .footer-social .social-icons a img {
+  width: 20px;
+  height: 20px;
+  /* Icons are black on white box */
+  filter: brightness(0);
+  aspect-ratio: 1;
+  display: block;
 }
 
+footer .footer-social .social-icons a:hover img {
+  opacity: 0.5;
+}
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+/* ============================================
+   FOOTER BOTTOM
+   ============================================ */
+footer .footer-bottom {
+  padding: 24px 0 32px;
+}
+
+footer .footer-bottom p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #bbb;
+}
+
+footer .footer-bottom p:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+footer .footer-bottom p:last-child {
+  margin-bottom: 0;
+}
+
+footer .footer-bottom a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+footer .footer-bottom a:hover {
+  color: #ffea00;
+}
+
+/* ============================================
+   MOBILE (< 900px)
+   ============================================ */
+@media (width < 900px) {
+  footer .footer .section {
+    padding: 0 16px;
   }
-} 
+
+  footer .footer-top {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 16px 0;
+    gap: 16px;
+  }
+
+  footer .footer-logo {
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
+
+  footer .footer-logo img {
+    height: 28px;
+  }
+
+  footer .footer-nav {
+    flex: 0 0 100%;
+  }
+
+  footer .footer-nav ul {
+    flex-wrap: wrap;
+    gap: 4px 0;
+  }
+
+  footer .footer-nav ul li a {
+    font-size: 11px;
+    padding: 4px 12px 4px 0;
+  }
+
+  footer .footer-social {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+
+  footer .footer-social-label {
+    font-size: 11px;
+  }
+
+  footer .footer-social .social-icons a img {
+    width: 16px;
+    height: 16px;
+  }
+
+  footer .footer-bottom {
+    padding: 16px 0 24px;
+  }
+
+  footer .footer-bottom p {
+    font-size: 11px;
+  }
+
+  footer .footer-bottom p:first-child {
+    font-size: 12px;
+  }
+}
+footer .footer-top {
+  padding: 14px 0;
+}
+
+footer .footer-bottom {
+  padding: 16px 0 20px;
+}
+
+footer .footer-bottom p {
+  margin: 0 0 8px;
+}

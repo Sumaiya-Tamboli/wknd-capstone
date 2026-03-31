@@ -395,3 +395,101 @@ body {
 .arctic-content1-container{
   display: flex;
 }
+
+
+ 
+/* ============================================
+   Sign-In Modal — paste into styles/styles.css
+   ============================================ */
+ 
+.sim-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+}
+.sim-overlay.active { display: flex; }
+ 
+.sim-modal {
+  position: relative;
+  background: #1a1a1a;
+  color: #fff;
+  width: 380px;
+  padding: 32px 36px 36px;
+  border-radius: 4px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+  font-family: Georgia, serif;
+  animation: simIn .25s cubic-bezier(.22,1,.36,1) forwards;
+}
+ 
+@keyframes simIn {
+  from { opacity:0; transform:translateY(12px) scale(.98); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+ 
+.sim-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; color: #888;
+  font-size: 20px; cursor: pointer; line-height: 1;
+}
+.sim-close:hover { color: #fff; }
+ 
+.sim-modal h2 {
+  font-size: 1.9rem; font-weight: 700;
+  margin: 0 0 8px; color: #fff;
+  font-family: Georgia, serif;
+}
+ 
+.sim-divider {
+  width: 44px; height: 3px;
+  background: #f5c400; border: none; margin: 0 0 18px;
+}
+ 
+.sim-subtitle {
+  font-size: .95rem; font-weight: 600;
+  margin: 0 0 16px; color: #fff;
+}
+ 
+.sim-modal label { display: none; }
+ 
+.sim-modal input[type=text],
+.sim-modal input[type=password],
+.sim-modal input[type=email] {
+  display: block; width: 100%; box-sizing: border-box;
+  padding: 12px 14px; margin-bottom: 12px;
+  background: transparent; border: 1px solid #555;
+  border-radius: 3px; color: #fff;
+  font-family: Arial, sans-serif; font-size: .72rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  outline: none; transition: border-color .2s;
+}
+.sim-modal input:focus { border-color: #f5c400; }
+.sim-modal input::placeholder { color: #666; }
+ 
+.sim-forgot {
+  display: block; font-size: .68rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: #fff; text-decoration: none; margin-bottom: 18px; cursor: pointer;
+}
+.sim-forgot:hover { color: #f5c400; }
+ 
+.sim-modal button[type=submit] {
+  display: block; width: 180px; padding: 12px 0;
+  background: #f5c400; color: #111;
+  font-size: .72rem; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+  text-align: center; border: none; border-radius: 2px;
+  cursor: pointer; transition: background .2s, transform .15s;
+}
+.sim-modal button[type=submit]:hover { background: #ffd700; transform: translateY(-1px); }
+ 
+.sim-status { margin-top: 10px; font-size: .8rem; font-weight: bold; color: #4caf50; }
+.sim-status.error { color: #f44336; }
+ 
+@media (max-width: 440px) {
+  .sim-modal { width: calc(100% - 32px); padding: 28px 20px 32px; }
+  .sim-modal button[type=submit] { width: 100%; }
+}

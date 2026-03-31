@@ -160,8 +160,16 @@
 .team-card .team-social a svg {
   width: 15px;
   height: 15px;
-  fill: #fff;
+ fill: #fff;
   display: block;
+}
+.team-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: invert(1);
+  
+  fill: #fff;
 }
 
 /* ══════════════════════════

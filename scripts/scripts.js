@@ -11,7 +11,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
-
+import('/scripts/sign-in-modal.js');
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -179,6 +179,8 @@ function loadDelayed() {
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
+
+
 
 async function loadPage() {
   await loadEager(document);

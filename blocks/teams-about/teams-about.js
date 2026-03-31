@@ -2,11 +2,11 @@
 
 (function () {
 
-  // ── SVG Icons ──
-  var SVG = {
-    facebook: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
-    twitter:  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2.02-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.58 1.64.9a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2.01 3.76a4.49 4.49 0 0 1-2.05-.57v.06c0 2.19 1.56 4.02 3.63 4.43a4.54 4.54 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.07 9.07 0 0 1 0 19.54a12.8 12.8 0 0 0 6.92 2.03c8.3 0 12.84-6.88 12.84-12.84 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 23 3z"/></svg>',
-    instagram:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>'
+  // ── Local Icon Paths ──
+  var ICONS = {
+    facebook: '/icons/facebook.svg',
+    twitter:  '/icons/x.svg',        // using x.svg for Twitter
+    instagram:'/icons/instagram.svg'
   };
 
   // ── Build a single team card ──
@@ -21,7 +21,6 @@
       var picClone = picture ? picture.cloneNode(true) : null;
 
       if (picClone) {
-        // Force circular style on the img inside picture
         var clonedImg = picClone.querySelector('img');
         if (clonedImg) {
           clonedImg.className = 'team-img';
@@ -50,14 +49,21 @@
 
     socialLinks.forEach(function (link) {
       var platform = (link.title || link.textContent || '').toLowerCase().trim();
-      var iconSVG  = SVG[platform] || SVG['facebook'];
+      var iconPath = ICONS[platform] || ICONS['facebook'];
 
       var a = document.createElement('a');
       a.href = link.href || '#';
       a.setAttribute('aria-label', platform);
       a.setAttribute('target', '_blank');
       a.setAttribute('rel', 'noopener noreferrer');
-      a.innerHTML = iconSVG;
+
+      // Create image element for icon
+      var img = document.createElement('img');
+      img.src = iconPath;
+      img.alt = platform;
+      img.className = 'team-icon';
+
+      a.appendChild(img);
       socialBar.appendChild(a);
     });
 

@@ -1,8 +1,8 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
- 
+
 const isDesktop = window.matchMedia('(min-width: 900px)');
- 
+
 function closeOnEscape(e) {
   if (e.code !== 'Escape') return;
   const nav = document.getElementById('nav');
@@ -17,7 +17,7 @@ function closeOnEscape(e) {
     nav.querySelector('button').focus();
   }
 }
- 
+
 function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (nav.contains(e.relatedTarget)) return;
@@ -30,7 +30,7 @@ function closeOnFocusLost(e) {
     toggleMenu(nav, navSections, false);
   }
 }
- 
+
 function openOnKeydown(e) {
   const focused = document.activeElement;
   if (focused.className !== 'nav-drop') return;
@@ -39,18 +39,18 @@ function openOnKeydown(e) {
   toggleAllNavSections(focused.closest('.nav-sections'));
   focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
 }
- 
+
 function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
- 
+
 function toggleAllNavSections(sections, expanded = false) {
   if (!sections) return;
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
- 
+
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
@@ -58,7 +58,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
- 
+
   if (navSections) {
     const navDrops = navSections.querySelectorAll('.nav-drop');
     if (isDesktop.matches) {
@@ -75,7 +75,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
       });
     }
   }
- 
+
   if (!expanded || isDesktop.matches) {
     window.addEventListener('keydown', closeOnEscape);
     nav.addEventListener('focusout', closeOnFocusLost);
@@ -84,23 +84,23 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     nav.removeEventListener('focusout', closeOnFocusLost);
   }
 }
- 
+
 export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
- 
+
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
- 
+
   const classes = ['brand', 'sections', 'tools', 'search'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
- 
+
   const navBrand = nav.querySelector('.nav-sections');
   if (navBrand) {
     const brandLink = navBrand.querySelector('.button');
@@ -110,7 +110,7 @@ export default async function decorate(block) {
       if (container) container.className = '';
     }
   }
- 
+
   const navLinks = nav.querySelector('.nav-tools');
   if (navLinks) {
     navLinks.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -124,7 +124,7 @@ export default async function decorate(block) {
       });
     });
   }
- 
+
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
@@ -133,19 +133,19 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navLinks));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
- 
+
   toggleMenu(nav, navLinks, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navLinks, isDesktop.matches));
- 
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
- 
-  // --- Shrink on scroll: rAF-throttled, passive, no forced reflow ---
+
+  // Scroll effect
   let isScrolled = false;
   let rafPending = false;
- 
+
   window.addEventListener('scroll', () => {
     if (rafPending) return;
     rafPending = true;
@@ -158,5 +158,44 @@ export default async function decorate(block) {
       rafPending = false;
     });
   }, { passive: true });
+
+  // ✅ ✅ SIGN-IN MODAL (CORRECT PLACE)
+
+  function createModal() {
+    const modal = document.createElement('div');
+    modal.className = 'signin-modal';
+
+    modal.innerHTML = `
+      <div class="signin-overlay"></div>
+      <div class="signin-box">
+        <h1>Sign In</h1>
+        <div class="underline"></div>
+        <h2>Welcome Back</h2>
+        <input type="text" placeholder="USERNAME" />
+        <input type="password" placeholder="PASSWORD" />
+        <p class="forgot">FORGOT YOUR PASSWORD?</p>
+        <button>SIGN IN</button>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+  }
+
+  createModal();
+
+  const trigger = nav.querySelector('.default-content-wrapper p');
+
+  if (trigger) {
+    trigger.style.cursor = 'pointer';
+
+    trigger.addEventListener('click', () => {
+      document.querySelector('.signin-modal').classList.add('open');
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('signin-overlay')) {
+      document.querySelector('.signin-modal')?.classList.remove('open');
+    }
+  });
 }
- 

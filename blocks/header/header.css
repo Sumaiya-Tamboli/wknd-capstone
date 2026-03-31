@@ -453,3 +453,132 @@ header nav .nav-brand {
   width: 100vw;
 }
  
+/* ===== MODAL BASE ===== */
+.signin-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 9999;
+}
+
+/* Show modal */
+.signin-modal.open {
+  display: block;
+}
+
+/* ===== DARK OVERLAY ===== */
+.signin-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+/* ===== MODAL BOX ===== */
+.signin-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 380px;
+  max-width: 90%;
+  
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+  padding: 40px;
+  border-radius: 6px;
+
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ===== TITLE ===== */
+.signin-box h1 {
+  font-size: 42px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Yellow underline */
+.signin-box .underline {
+  width: 60px;
+  height: 3px;
+  background: #ffe600;
+  margin: 15px 0 25px;
+}
+
+/* Subtitle */
+.signin-box h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+/* ===== INPUT FIELDS ===== */
+.signin-box input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 18px;
+
+  background: transparent;
+  border: 1px solid #777;
+  border-radius: 4px;
+
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.signin-box input::placeholder {
+  color: #aaa;
+}
+
+/* ===== FORGOT TEXT ===== */
+.signin-box .forgot {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+/* ===== BUTTON ===== */
+.signin-box button {
+  width: 60%;
+  padding: 14px;
+
+  background: #ffe600;
+  color: #000;
+
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signin-box button:hover {
+  background: #ffd000;
+}
+
+/* ===== FIX PAGE SCROLL ISSUE ===== */
+body.modal-open {
+  overflow: hidden;
+}
+
+.ptag p{
+  color: white;
+  font-size: 14px;
+}
+.ptag p:hover{
+  color: #ffd000;
+}
+
+/* .nav-brand .default-content-wrapper p:hover{
+  color: #ffd0000;
+} */
