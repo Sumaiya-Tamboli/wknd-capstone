@@ -1,0 +1,57 @@
+/* ==========================================================================
+   quote block
+   ========================================================================== */
+
+.quote-wrapper {
+  margin: 32px 0;
+}
+
+.quote {
+  background-color: #ebebeb;
+  padding: clamp(24px, 4vw, 48px) clamp(24px, 5vw, 56px);
+}
+
+.quote > div > div {
+  padding: 0;
+}
+
+/* ── Quote text ── */
+.quote blockquote,
+.quote p.quote-text {
+  font-family: adobe-caslon-pro, 'Adobe Caslon Pro', 'Book Antiqua', palatino, 'Palatino Linotype', georgia, serif;
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: #202020;
+  margin: 0 0 16px 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* ── Yellow rule under the quote ── */
+.quote .quote-rule {
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: #ffcc00;
+  margin: 0 0 24px 0;
+  border: none;
+}
+
+/* ── Attribution line ── */
+.quote p.quote-attribution {
+  font-family: adobe-clean, 'Adobe Clean', helvetica, arial, sans-serif;
+  font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
+  font-weight: 400;
+  color: #202020;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 599px) {
+  .quote-wrapper {
+    margin: 24px 0;
+  }
+}

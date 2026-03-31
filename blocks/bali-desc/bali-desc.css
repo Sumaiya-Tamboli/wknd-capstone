@@ -1,0 +1,231 @@
+/* ═══════════════════════════════════════════════════════════════
+   bali-desc.css
+   Tabs + panel content for the right-column block
+   Performance: contain, compositor-only transitions, clamp() fluid sizing
+   Breakpoints: 641–960 tablet | ≤640 mobile
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Perf: isolate layout/paint to this block ── */
+.bali-desc {
+  font-family: var(--body-font-family, roboto, sans-serif);
+  width: 100%;
+  min-width: 0;
+  contain: content;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Tab nav
+   ═══════════════════════════════════════════════════════════════ */
+.bali-desc .bali-desc-tabs {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  margin-bottom: 28px;
+  /* Contain tab bar repaints */
+  contain: layout style;
+}
+
+.bali-desc .bali-desc-tab {
+  font-family: var(--body-font-family, roboto, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+  padding: 11px 22px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  /* background+color: both paint-only — no layout cost */
+  transition: background 0.15s ease, color 0.15s ease;
+  /* Minimum 44px tap target height for mobile accessibility */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bali-desc .bali-desc-tab.active {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.bali-desc .bali-desc-tab:hover:not(.active) {
+  color: #111;
+  background: #f4f4f4;
+}
+
+.bali-desc .bali-desc-tab:focus-visible {
+  outline: 2px solid #ffcc00;
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Panels
+   JS sets `hidden` attr + removes `.active` class on switch.
+   We handle BOTH to avoid flash of invisible content.
+   ═══════════════════════════════════════════════════════════════ */
+.bali-desc .bali-desc-panel {
+  display: none;
+}
+
+/* Override native hidden + class toggle from JS */
+.bali-desc .bali-desc-panel.active,
+.bali-desc .bali-desc-panel[hidden].active {
+  display: block !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Body text
+   ═══════════════════════════════════════════════════════════════ */
+.bali-desc .bali-desc-panel p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: #333;
+  margin: 0 0 18px;
+  /* min() keeps text readable at any width without a hard breakpoint */
+  max-width: min(680px, 100%);
+  /* Avoid unnecessary repaints on text */
+  text-rendering: optimizeSpeed;
+}
+
+/* Bold location headings: Keramas, Nusa Dua, Sanur */
+.bali-desc .bali-desc-panel p > strong:only-child,
+.bali-desc .bali-desc-panel p strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Image
+   ═══════════════════════════════════════════════════════════════ */
+.bali-desc .bali-desc-panel picture {
+  display: block;
+  margin: 8px 0 24px;
+}
+
+.bali-desc .bali-desc-panel img {
+  display: block;
+  width: 100%;
+  /* Fluid height — smooth scale across all viewports, no breakpoint snap */
+  max-height: clamp(180px, 32vw, 420px);
+  object-fit: cover;
+  border-radius: 2px;
+  /* Hint browser to decode off main thread */
+  decoding: async;
+  /* Prevent layout shift: image is always below fold on first paint */
+  loading: lazy;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   What to Bring list
+   ═══════════════════════════════════════════════════════════════ */
+.bali-desc .bali-desc-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bali-desc .bali-desc-panel ul li {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  padding: 8px 0 8px 26px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.bali-desc .bali-desc-panel ul li::before {
+  content: '►';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 9px;
+  color: #333;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Tablet  (641px – 960px)
+   ═══════════════════════════════════════════════════════════════ */
+@media (min-width: 641px) and (max-width: 960px) {
+  .bali-desc .bali-desc-tab {
+    font-size: 10px;
+    padding: 10px 16px;
+    letter-spacing: 0.1em;
+  }
+
+  .bali-desc .bali-desc-panel p,
+  .bali-desc .bali-desc-panel ul li {
+    font-size: 15px;
+  }
+
+  .bali-desc .bali-desc-panel p > strong:only-child,
+  .bali-desc .bali-desc-panel p strong {
+    font-size: 14px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Mobile  (≤ 640px)
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* Horizontal scrollable tab bar with touch snap */
+  .bali-desc .bali-desc-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    /* Prevent tab bar from shrinking grid column */
+    contain: layout style;
+  }
+
+  .bali-desc .bali-desc-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bali-desc .bali-desc-tab {
+    font-size: 10px;
+    padding: 10px 14px;
+    letter-spacing: 0.1em;
+    scroll-snap-align: start;
+    min-height: 44px;
+  }
+
+  .bali-desc .bali-desc-panel p,
+  .bali-desc .bali-desc-panel ul li {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .bali-desc .bali-desc-panel p > strong:only-child,
+  .bali-desc .bali-desc-panel p strong {
+    font-size: 14px;
+  }
+
+  .bali-desc .bali-desc-panel ul li {
+    padding-left: 22px;
+  }
+
+  .bali-desc .bali-desc-panel ul li::before {
+    top: 9px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Accessibility — honour user motion preference
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .bali-desc .bali-desc-tab {
+    transition: none;
+  }
+}

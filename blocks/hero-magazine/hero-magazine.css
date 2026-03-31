@@ -1,0 +1,130 @@
+/* hero-magazine block styles */
+
+.hero-magazine-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-magazine {
+  display: block;
+  width: 100%;
+}
+
+/* ── Image container ── */
+.hero-magazine > div:first-child {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.hero-magazine > div:first-child > div {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-magazine picture {
+  display: block;
+  width: 100%;
+}
+
+.hero-magazine picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1242 / 768;
+  object-fit: cover;
+  object-position: center top;
+  contain: layout;
+}
+
+/* ── Breadcrumb row ── */
+.hero-magazine > div:last-child {
+  padding: 12px 0 8px;
+  line-height: 1;
+}
+
+.hero-magazine > div:last-child > div {
+  max-width: 100%;
+}
+
+.hero-magazine > div:last-child p {
+  margin: 0;
+  padding: 0;
+  font-family:"Source Serif Pro", Georgia, serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.hero-magazine > div:last-child p a {
+  color: #2c2c2c;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.hero-magazine > div:last-child p a:hover,
+.hero-magazine > div:last-child p a:focus-visible {
+  color: hsl(54, 100%, 50%);
+  text-decoration: none;
+  outline: none;
+}
+
+/* SVG chevron separator */
+.hero-magazine .hero-breadcrumb-sep {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.hero-magazine .hero-breadcrumb-sep svg {
+  width: 6px;
+  height: 10px;
+  fill: none;
+  stroke: hsl(54, 100%, 50%);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+
+/* Article title */
+.hero-magazine .hero-breadcrumb-title {
+  color: #2c2c2c;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (min-width: 600px) {
+  .hero-magazine > div:last-child {
+    padding: 14px 0 10px;
+  }
+
+  .hero-magazine > div:last-child p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-magazine > div:last-child {
+    padding: 16px 0 12px;
+  }
+
+  .hero-magazine > div:last-child p {
+    font-size: 0.8125rem;
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-magazine > div:last-child p a {
+    transition: none;
+  }
+}

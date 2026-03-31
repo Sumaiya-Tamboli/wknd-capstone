@@ -1,0 +1,104 @@
+/* bali-breadcrumb.css */
+
+.bali-breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+  background: #fff;
+  line-height: 1;
+}
+
+.bali-breadcrumb > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.bali-breadcrumb > div > div {
+  display: flex;
+  align-items: center;
+}
+
+.bali-breadcrumb p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Adventures link — plain bold text ── */
+.bali-breadcrumb a {
+  font-family: var(--body-font-family, adobe-clean, 'Source Sans Pro', sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.bali-breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Yellow filled triangle separator ── */
+.bali-breadcrumb > div > div:first-child::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #ffcc00;
+  margin: 0 10px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* ── Current page label ── */
+.bali-breadcrumb > div > div:last-child p {
+  font-family: var(--body-font-family, adobe-clean, 'Source Sans Pro', sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .bali-breadcrumb {
+    padding: 10px 16px;
+  }
+
+  .bali-breadcrumb a,
+  .bali-breadcrumb > div > div:last-child p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bali-breadcrumb {
+    padding: 8px 12px;
+  }
+
+  .bali-breadcrumb > div {
+    row-gap: 4px;
+  }
+
+  .bali-breadcrumb a,
+  .bali-breadcrumb > div > div:last-child p {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  .bali-breadcrumb > div > div:first-child::after {
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 7px;
+    margin: 0 8px;
+  }
+}

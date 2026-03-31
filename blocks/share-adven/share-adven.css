@@ -1,0 +1,240 @@
+/* ═══════════════════════════════════════════════════════════════
+   share-adven.css
+   Layout: title (full-width, centered) → [sidebar | content]
+   Performance: contain, will-change, layer promotion only where needed
+   Breakpoints: >960 desktop | 641–960 tablet | ≤640 mobile
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Perf: isolate layout/paint to this subtree ── */
+.share-adven-container {
+  contain: layout style;
+}
+
+/* ── Section container grid ── */
+.share-adven-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 56px;
+  align-items: start;
+}
+
+/* ── Title: spans full width, row 1 ── */
+.share-adven-container > .adven-title-section {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ── Sidebar: col 1, row 2 ── */
+.share-adven-wrapper {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  /* Sticky sidebar — stays visible while right col scrolls */
+  position: sticky;
+  top: 24px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ── Tab content: col 2, row 2 ── */
+.bali-desc-wrapper {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  min-width: 0; /* prevent grid blowout */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Title
+   ═══════════════════════════════════════════════════════════════ */
+.adven-title-section .adven-title {
+  margin: 0 0 10px;
+  font-family: "Source Serif Pro", Georgia, "Times New Roman", serif;
+  /* Fluid: never below 26px, never above 42px */
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+  /* Prevent CLS on anchor links */
+  scroll-margin-top: 40px;
+  /* Avoid layout recalc on text-rendering */
+  text-rendering: optimizeSpeed;
+}
+
+.adven-title-section .adven-title-underline {
+  width: 48px;
+  height: 3px;
+  background: #ffcc00;
+  margin: 0 auto;
+  /* GPU layer only for this tiny element */
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Sidebar
+   ═══════════════════════════════════════════════════════════════ */
+.share-adven {
+  font-family: var(--body-font-family, roboto, sans-serif);
+  /* Isolate paint so sidebar repaints don't affect right column */
+  contain: content;
+}
+
+.share-adven .adven-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.share-adven .adven-meta-item {
+  padding: 14px 0 14px 16px;
+  border-left: 2px solid #e0e0e0;
+  margin-bottom: 6px;
+}
+
+.share-adven .adven-meta-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.share-adven .adven-meta-value {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #111;
+  line-height: 1.3;
+}
+
+/* Share button */
+.share-adven .adven-share {
+  display: inline-block;
+  margin-top: 28px;
+  margin-left: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111;
+  cursor: pointer;
+  user-select: none;
+  /* opacity-only transition: compositor thread, no layout/paint */
+  transition: opacity 0.15s ease;
+  /* Minimum tap target for mobile accessibility */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.share-adven .adven-share:hover {
+  opacity: 0.5;
+}
+
+.share-adven .adven-share:focus-visible {
+  outline: 2px solid hsl(54, 100%, 50%);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Tablet  (641px – 960px)
+   ═══════════════════════════════════════════════════════════════ */
+@media (min-width: 641px) and (max-width: 960px) {
+  .share-adven-container {
+    grid-template-columns: 200px 1fr;
+    column-gap: 32px;
+    padding: 32px 20px 48px;
+  }
+
+  /* Sticky doesn't help much on tablet — disable */
+  .share-adven-wrapper {
+    position: static;
+  }
+
+  .share-adven .adven-meta-label {
+    font-size: 9px;
+  }
+
+  .share-adven .adven-meta-value {
+    font-size: 12px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Mobile  (≤ 640px)  — single column stack
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .share-adven-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 0;
+    padding: 24px 16px 40px;
+  }
+
+  .share-adven-container > .adven-title-section {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .adven-title-section .adven-title-underline {
+    margin: 0;
+  }
+
+  .share-adven-wrapper {
+    grid-column: 1;
+    grid-row: 2;
+    position: static;
+  }
+
+  .bali-desc-wrapper {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 32px !important;
+  }
+
+  /* 2-col grid for meta items on mobile */
+  .share-adven .adven-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .share-adven .adven-meta-item {
+    width: 50%;
+    padding: 10px 8px 10px 12px;
+    margin-bottom: 4px;
+  }
+
+  .share-adven .adven-share {
+    width: 100%;
+    margin-left: 12px;
+    margin-top: 12px;
+    min-height: 44px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Accessibility
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .share-adven .adven-share,
+  .adven-title-section .adven-title-underline {
+    transition: none;
+    will-change: auto;
+  }
+}

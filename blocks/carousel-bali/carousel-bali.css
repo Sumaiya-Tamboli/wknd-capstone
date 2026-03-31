@@ -1,0 +1,150 @@
+/* carousel-bali.css */
+
+/* ── Container ── */
+.carousel-bali {
+  position: relative;
+  width: 100%;
+  background: #fff;
+}
+
+/* ── Slide track ── */
+.carousel-bali .carousel-track {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  background: #e8e8e8;
+}
+
+/* ── Individual slides ── */
+.carousel-bali .carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.carousel-bali .carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Images fill the slide ── */
+.carousel-bali .carousel-slide picture,
+.carousel-bali .carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Controls bar (below the image) ── */
+.carousel-bali .carousel-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 0;
+  background: #fff;
+  min-height: 44px;
+}
+
+/* ── Dots (centered) ── */
+.carousel-bali .carousel-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-bali .carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.carousel-bali .carousel-dot.active {
+  background: #222;
+}
+
+/* ── Nav: arrows flush right ── */
+.carousel-bali .carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+/* ── Arrow buttons — plain unicode ← → ── */
+.carousel-bali .carousel-btn {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: #222;
+  line-height: 1;
+  transition: opacity 0.2s;
+  /* Use a system font that renders ← → cleanly */
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0;
+  text-decoration: none;
+  user-select: none;
+}
+
+.carousel-bali .carousel-btn:hover {
+  opacity: 0.45;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-bali .carousel-slide {
+    transition: none;
+  }
+}
+
+/* ── Tablet ── */
+@media (max-width: 768px) {
+  .carousel-bali .carousel-track {
+    aspect-ratio: 16 / 9;
+  }
+
+  .carousel-bali .carousel-controls {
+    padding: 8px 12px 8px 0;
+  }
+
+  .carousel-bali .carousel-btn {
+    font-size: 18px;
+    padding: 4px 6px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .carousel-bali .carousel-track {
+    aspect-ratio: 4 / 3;
+  }
+
+  .carousel-bali .carousel-btn {
+    font-size: 16px;
+    padding: 4px 5px;
+  }
+
+  .carousel-bali .carousel-dot {
+    width: 7px;
+    height: 7px;
+  }
+}

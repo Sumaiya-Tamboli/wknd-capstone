@@ -1,0 +1,114 @@
+/* ==========================================================================
+   article-magazine block
+   ========================================================================== */
+
+.article-magazine-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.article-magazine {
+  display: block;
+}
+
+/* Each row in the block is a <div><div> wrapper */
+.article-magazine > div > div {
+  padding: 0;
+}
+
+/* ── Typography ── */
+.article-magazine h2 {
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #202020;
+  margin: 0 0 12px 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Yellow underline beneath every h2 (except the first — that's the article title) */
+.article-magazine > div:not(:first-child) h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: hsl(54, 100%, 50%);
+  margin-top: 10px;
+}
+
+/* First h2 = article title — larger, no yellow bar */
+.article-magazine > div:first-child h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin-bottom: 8px;
+}
+
+.article-magazine h4 {
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #202020;
+  margin: 0 0 28px 0;
+  padding: 0;
+}
+
+.article-magazine h4 strong {
+  font-weight: 700;
+}
+
+.article-magazine p {
+  font-family: adobe-clean, 'Adobe Clean', helvetica, arial, sans-serif;
+  font-size: 1rem;
+  line-height: 2;          /* matches the airy double-spaced look in the screenshots */
+  color: #202020;
+  text-align: justify;
+  margin: 0 0 28px 0;
+}
+
+/* ── Images ── */
+.article-magazine picture {
+  display: block;
+  width: 100%;
+  margin: 0 0 28px 0;
+  line-height: 0;
+}
+
+.article-magazine picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1279 / 853;
+  object-fit: cover;
+}
+
+/* paragraph that wraps a picture — remove bottom margin; picture handles it */
+.article-magazine p:has(picture) {
+  margin: 0;
+}
+
+/* ── Section divider at bottom ── */
+.article-magazine > div:last-child {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 40px;
+  padding-top: 0;
+}
+
+/* ── Responsive ── */
+@media (min-width: 600px) {
+  .article-magazine h2 {
+    font-size: 2.25rem;
+  }
+
+  .article-magazine > div:first-child h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+  }
+}
+
+@media (min-width: 900px) {
+  .article-magazine p {
+    font-size: 1.0625rem;
+  }
+}
